@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MainApp());
@@ -71,7 +72,8 @@ class MainApp extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // LinkedIn action
+                      _launchURL(
+                          'https://www.linkedin.com/in/isabellelabuguen/');
                     },
                     child: Text(
                       'LinkedIn',
@@ -81,7 +83,7 @@ class MainApp extends StatelessWidget {
                   const Text('/', style: TextStyle(fontSize: 13)),
                   TextButton(
                     onPressed: () {
-                      // GitHub action
+                      _launchURL('https://github.com/isabellelbgn');
                     },
                     child: Text(
                       'GitHub',
@@ -91,7 +93,7 @@ class MainApp extends StatelessWidget {
                   const Text('/', style: TextStyle(fontSize: 13)),
                   TextButton(
                     onPressed: () {
-                      // Instagram action
+                      _launchURL('https://www.instagram.com/isabellelbgn/');
                     },
                     child: Text(
                       'Instagram',
@@ -108,5 +110,14 @@ class MainApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void _launchURL(String url) async {
+  final Uri uri = Uri.parse(url);
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri);
+  } else {
+    throw 'Could not launch $url';
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_bar.dart';
 import 'header.dart';
+import 'about_me.dart';
 
 void main() {
   runApp(const MainApp());
@@ -26,9 +27,20 @@ class MainApp extends StatelessWidget {
               fontWeight: FontWeight.w600),
         ),
       ),
-      home: const Scaffold(
-        appBar: CustomAppBar(),
-        body: Header(),
+      home: Scaffold(
+        appBar: const CustomAppBar(),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          color: Colors.white,
+          child: const SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Header(),
+                AboutMe(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

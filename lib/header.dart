@@ -6,11 +6,13 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
       children: <Widget>[
         Positioned(
           child: Container(
-            height: 620,
+            height: screenHeight * 0.75,
             decoration: const BoxDecoration(
               color: Color(0xFFEFEEEE),
               borderRadius: BorderRadius.only(
@@ -26,8 +28,28 @@ class Header extends StatelessWidget {
           right: 0,
           child: Center(
             child: CircleAvatar(
-              maxRadius: 60,
+              maxRadius: 65,
               backgroundImage: AssetImage('assets/my-icon.JPG'),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 110,
+          left: 200,
+          right: 0,
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Text(
+                'Isabelle Labuguen 👋🏻',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Colors.black,
+                    ),
+              ),
             ),
           ),
         ),

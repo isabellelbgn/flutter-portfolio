@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/projects.dart';
 import 'app_bar.dart';
 import 'header.dart';
 import 'about_me.dart';
@@ -16,16 +17,6 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Inter',
-        textTheme: const TextTheme().copyWith(
-          bodyMedium: const TextStyle(
-              fontSize: 13, color: Color.fromRGBO(36, 36, 36, 1)),
-          bodySmall: const TextStyle(
-              fontSize: 12, color: Color.fromRGBO(36, 36, 36, 1)),
-          headlineLarge: const TextStyle(
-              fontSize: 48,
-              color: Color.fromRGBO(36, 36, 36, 1),
-              fontWeight: FontWeight.w600),
-        ),
       ),
       home: Scaffold(
         appBar: const CustomAppBar(),
@@ -37,6 +28,7 @@ class MainApp extends StatelessWidget {
               children: <Widget>[
                 Header(),
                 AboutMe(),
+                Projects(),
               ],
             ),
           ),

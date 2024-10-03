@@ -16,7 +16,7 @@ class AboutMe extends StatelessWidget {
           Text(
             'About Me',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                 ),
             textAlign: TextAlign.center,
           ),

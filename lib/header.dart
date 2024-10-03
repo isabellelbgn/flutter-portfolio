@@ -35,7 +35,7 @@ class Header extends StatelessWidget {
         ),
         Positioned(
           top: 110,
-          left: 200,
+          left: 220,
           right: 0,
           child: Center(
             child: Container(
@@ -54,13 +54,15 @@ class Header extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 220,
+          top: 230,
           left: 0,
           right: 0,
           child: Center(
             child: Text(
               'Crafting engaging\nwebsites with\nmodern design.',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),

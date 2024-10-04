@@ -45,7 +45,7 @@ class Section extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 28.0, horizontal: 16.0),
+      padding: const EdgeInsets.fromLTRB(0, 70, 0, 110),
       decoration: const BoxDecoration(
         color: Color(0xFFEFEEEE),
       ),

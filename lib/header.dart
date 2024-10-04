@@ -6,22 +6,8 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-
     return Stack(
       children: <Widget>[
-        Positioned(
-          child: Container(
-            height: screenHeight * 0.75,
-            decoration: const BoxDecoration(
-              color: Color(0xFFEFEEEE),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(100),
-                bottomRight: Radius.circular(100),
-              ),
-            ),
-          ),
-        ),
         const Positioned(
           top: 80,
           left: 0,

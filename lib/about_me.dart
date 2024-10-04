@@ -6,9 +6,7 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      padding: const EdgeInsets.all(32),
-      color: Colors.white,
+      margin: const EdgeInsets.only(top: 150.0, bottom: 35.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,40 +19,34 @@ class AboutMe extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: Text(
-              'I am a 4th year student in college pursuing a Bachelor of Science in Computer Science. Currently, I am a member of Samahan Systems Development, working as a Backend Developer using TypeScript and Nest.js. I am also a Project Manager for the organization.',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: Text(
-              'Additionally, I was a software engineer intern at Orange & Bronze Software Labs, taking the position of Business Analyst and Quality Assurance Intern.',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: Text(
-              'I am eager to learn new technologies and am currently looking for a part-time position as a software developer.',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: Text(
-              'When I\'m not coding, I enjoy reading, watching movies, and going to the gym. I also have a passion for learning new things.',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: Column(
+              children: [
+                Text(
+                  'I am currently in my fourth year pursuing a Bachelor of Science in Computer Science. As a committed member of \nSAMAHAN Systems Development, I work as a Backend Developer, focusing in TypeScript and Nest.js. \nIn addition, I hold the position of Project Manager, where I lead our team toward successful project outcomes.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  'Previously, I interned as a Software Engineer at Orange & Bronze Software Labs, where I took on roles as a Business Analyst and Quality Assurance Intern.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  'I am enthusiastic about learning new technologies and am actively seeking a part-time position as a software developer',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  'Outside of coding, I enjoy reading, watching movies, and hitting the gym. I also have a passion for continuous learning and exploring new interests.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
         ],

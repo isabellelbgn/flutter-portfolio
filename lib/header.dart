@@ -6,6 +6,13 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Set font sizes based on screen width
+    double titleFontSize =
+        screenWidth <= 700 ? 12 : 14; // Adjust these sizes as needed
+    double subtitleFontSize = screenWidth <= 700 ? 36 : 45;
+
     return Stack(
       children: <Widget>[
         const Positioned(
@@ -31,9 +38,10 @@ class Header extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
-                'Isabelle Labuguen 👋🏻',
+                'Isabelle Labuguen',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Colors.black,
+                      fontSize: titleFontSize,
                     ),
               ),
             ),
@@ -48,6 +56,7 @@ class Header extends StatelessWidget {
               'Crafting engaging\nwebsites with\nmodern design.',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     fontWeight: FontWeight.w600,
+                    fontSize: subtitleFontSize,
                   ),
               textAlign: TextAlign.center,
             ),

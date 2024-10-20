@@ -44,8 +44,23 @@ class Section extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double childWidth =
+        screenWidth > 700 ? 0.6 * screenWidth : 0.9 * screenWidth;
+
+    // Adjust container height based on screen size
+    final double containerHeight = screenWidth <= 700 ? 1200 : 1200;
+
+    // Adjust padding based on screen width
+    final double horizontalPadding = screenWidth <= 700 ? 16.0 : 32.0;
+    final double verticalPadding = screenWidth <= 700 ? 270.0 : 270.0;
+
+    double titleFontSize = screenWidth <= 1230 ? 24.0 : 28.0;
+
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 70, 0, 110),
+      height: containerHeight,
+      padding: EdgeInsets.fromLTRB(
+          horizontalPadding, verticalPadding, horizontalPadding, 0),
       decoration: const BoxDecoration(
         color: Color(0xFFEFEEEE),
       ),
@@ -57,13 +72,19 @@ class Section extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w600,
+                    fontSize: titleFontSize,
                   ),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 40),
           Center(
             child: Column(
-              children: children,
+              children: children.map((child) {
+                return SizedBox(
+                  width: childWidth,
+                  child: child,
+                );
+              }).toList(),
             ),
           ),
         ],
@@ -88,6 +109,10 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double titleFontSize = screenWidth <= 1200 ? 22 : 24;
+    final double descriptionFontSize = screenWidth <= 1200 ? 12 : 14;
+
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       margin: const EdgeInsets.only(bottom: 16),
@@ -103,33 +128,46 @@ class ProjectCard extends StatelessWidget {
           Center(
             child: Text(
               title,
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontSize: titleFontSize,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(height: 8),
-          Text(description, style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            description,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  fontSize: descriptionFontSize,
+                ),
+          ),
           const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Wrap(
-                spacing: 8,
-                children: tags.map((tag) {
-                  return Chip(
-                    label: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 1, vertical: 1),
-                      child: Text(
-                        tag,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.white,
-                            ),
+              Expanded(
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 4,
+                  children: tags.map((tag) {
+                    return Chip(
+                      label: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 2,
+                        ),
+                        child: Text(
+                          tag,
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: Colors.white,
+                                  ),
+                        ),
                       ),
-                    ),
-                    backgroundColor: Colors.grey[900],
-                  );
-                }).toList(),
+                      backgroundColor: Colors.grey[900],
+                    );
+                  }).toList(),
+                ),
               ),
               IconButton(
                 icon: const FaIcon(FontAwesomeIcons.github),

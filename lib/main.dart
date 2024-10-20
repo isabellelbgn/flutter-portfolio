@@ -3,7 +3,6 @@ import 'package:flutter_portfolio/projects.dart';
 import 'app_bar.dart';
 import 'header.dart';
 import 'about_me.dart';
-import 'footer.dart';
 
 void main() {
   runApp(const MainApp());
@@ -25,7 +24,8 @@ class MainApp extends StatelessWidget {
           children: <Widget>[
             SingleChildScrollView(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 1.95,
+                height: MediaQuery.of(context).size.height *
+                    (MediaQuery.of(context).size.width <= 1030 ? 2.4 : 2.1),
                 child: Stack(
                   children: <Widget>[
                     // Projects overlapping About Me
@@ -33,7 +33,16 @@ class MainApp extends StatelessWidget {
                       top: MediaQuery.of(context).size.height * 1,
                       left: 0,
                       right: 0,
-                      child: const Projects(),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(100),
+                            bottomRight: Radius.circular(100),
+                          ),
+                        ),
+                        child: const Projects(),
+                      ),
                     ),
                     // About Me overlapping Header
                     Positioned(
@@ -67,13 +76,6 @@ class MainApp extends StatelessWidget {
                         ),
                         child: const Header(),
                       ),
-                    ),
-                    // Footer, overlapping projects
-                    Positioned(
-                      top: MediaQuery.of(context).size.height * 1.85,
-                      left: 0,
-                      right: 0,
-                      child: const Footer(),
                     ),
                     // Projects
                   ],

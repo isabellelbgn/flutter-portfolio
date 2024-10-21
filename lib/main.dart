@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
             SingleChildScrollView(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height *
-                    (MediaQuery.of(context).size.width <= 1030 ? 2.4 : 2.1),
+                    (MediaQuery.of(context).size.width <= 1030 ? 2.4 : 2.15),
                 child: Stack(
                   children: <Widget>[
                     // Projects overlapping About Me

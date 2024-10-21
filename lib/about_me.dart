@@ -8,8 +8,9 @@ class AboutMe extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     // Adjust font size based on screen width
-    double titleFontSize = screenWidth <= 1230 ? 24.0 : 28.0;
-    double bodyFontSize = screenWidth <= 1230 ? 12.0 : 16.0;
+    double titleFontSize = screenWidth <= 1000 ? 24.0 : 28.0;
+    double bodyFontSize =
+        screenWidth <= 500 ? 8.0 : (screenWidth <= 1000 ? 12.0 : 16.0);
 
     return Container(
       height: 340.0,

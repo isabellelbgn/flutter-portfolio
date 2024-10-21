@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'utils/url_launcher_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -41,7 +42,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             ),
                             const SizedBox(width: 10),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchUrl(
+                                    "https://drive.usercontent.google.com/download?id=1d7gNkuO9fRo2QaFlU4EzG65VKJUBXt1V&export=download&authuser=0&confirm=t&uuid=8d792cd5-f7f7-405e-998e-0a91e22b8084&at=AN_67v10SZy9GiJppUx6XebAD8Fz:1729485406839"
+                                        as Uri);
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 minimumSize: const Size(100, 50),
@@ -82,7 +87,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             ),
                             const SizedBox(width: 10),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchUrl(Uri.parse(
+                                    "https://drive.usercontent.google.com/download?id=1d7gNkuO9fRo2QaFlU4EzG65VKJUBXt1V&export=download&authuser=0&confirm=t&uuid=8d792cd5-f7f7-405e-998e-0a91e22b8084&at=AN_67v10SZy9GiJppUx6XebAD8Fz:1729485406839"));
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: Colors.white,
                                 minimumSize: const Size(100, 50),
